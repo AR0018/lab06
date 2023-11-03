@@ -7,13 +7,16 @@ import java.util.Map;
 import java.util.Set;
 
 import it.unibo.generics.graph.api.Graph;
-/*TODO: implement a way to choose which graph search strategy to use in getPath */
+import it.unibo.generics.graph.api.Search;
+
 public class GraphImpl<N> implements Graph<N> {
 
     private final Map<N, Set<N>> nodes;
+    private final Search<N> searchStrategy;
 
-    public GraphImpl() {
+    public GraphImpl(Search<N> searchStrategy) {
         this.nodes = new HashMap<>();
+        this.searchStrategy = searchStrategy;
     }
 
     public void addNode(N node) {
@@ -38,9 +41,8 @@ public class GraphImpl<N> implements Graph<N> {
         return new HashSet<>(nodes.get(node));
     }
 
-    /*TODO: implement this method */
     public List<N> getPath(N source, N target) {
-        return null;
+        return this.searchStrategy.findPath(this, source, target);
     }
 
     public String toString() {

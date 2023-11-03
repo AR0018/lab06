@@ -17,7 +17,7 @@ public interface Search<N> {
      *          starting node
      * @param target
      *          ending node
-     * @return the list of nodes in the path from source to target
+     * @return the list of nodes in the path from source to target, null if the path does not exist
      */
     List<N> findPath(Graph<N> graph, N source, N target);
 }
