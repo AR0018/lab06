@@ -28,7 +28,7 @@ public class BreadthFirst<N> implements Search<N> {
     public BreadthFirst() {
     }
 
-    public List<N> findPath(Graph<N> graph, N source, N target) {
+    public List<N> findPath(final Graph<N> graph, final N source, final N target) {
         if (source != null && target != null
                 && graph.nodeSet().contains(source)
                 && graph.nodeSet().contains(target)) {
@@ -65,7 +65,7 @@ public class BreadthFirst<N> implements Search<N> {
     /*
      * Inserts a node in the queue
      */
-    private void enqueue(N node) {
+    private void enqueue(final N node) {
         this.queue.add(node);
     }
 
@@ -79,7 +79,7 @@ public class BreadthFirst<N> implements Search<N> {
     /*
      * Initializes the source of the graph
      */
-    private void initializeSource(N source) {
+    private void initializeSource(final N source) {
         this.nodesData.get(source).setDepth(SOURCE_DEPTH);
     }
 
@@ -87,7 +87,7 @@ public class BreadthFirst<N> implements Search<N> {
      * Returns the list containing the nodes of the path ordered from the source
      * to the target (source is the first element)
      */
-    private List<N> getPath(Graph<N> graph, N target) {
+    private List<N> getPath(final Graph<N> graph, final N target) {
         final List<N> path = new ArrayList<>();
         Path(path, target);
         return nodesData.get(target).getFather() == null ? null : path;
@@ -97,7 +97,7 @@ public class BreadthFirst<N> implements Search<N> {
      * Adds the nodes of the path recursively by climbing the tree of fathers 
      * up to the source
      */
-    private void Path(List<N> path, N node) {
+    private void Path(final List<N> path, final N node) {
         if(node != null) {
             Path(path, nodesData.get(node).getFather());
             path.add(node);

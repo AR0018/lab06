@@ -14,18 +14,18 @@ public class GraphImpl<N> implements Graph<N> {
     private final Map<N, Set<N>> nodes;
     private final Search<N> searchStrategy;
 
-    public GraphImpl(Search<N> searchStrategy) {
+    public GraphImpl(final Search<N> searchStrategy) {
         this.nodes = new HashMap<>();
         this.searchStrategy = searchStrategy;
     }
 
-    public void addNode(N node) {
+    public void addNode(final N node) {
         if(node != null) {
             this.nodes.putIfAbsent(node, new HashSet<>());
         }
     }
 
-    public void addEdge(N source, N target) {
+    public void addEdge(final N source, final N target) {
         if(source != null && target != null &&
         this.nodes.containsKey(source) &&
         this.nodes.containsKey(target)) {
@@ -37,17 +37,17 @@ public class GraphImpl<N> implements Graph<N> {
         return new HashSet<>(nodes.keySet());
     }
 
-    public Set<N> linkedNodes(N node) {
+    public Set<N> linkedNodes(final N node) {
         return new HashSet<>(nodes.get(node));
     }
 
-    public List<N> getPath(N source, N target) {
+    public List<N> getPath(final N source, final N target) {
         return this.searchStrategy.findPath(this, source, target);
     }
 
     public String toString() {
         String graphString = "Graph:\n";
-        for (N node : this.nodes.keySet()) {
+        for (final N node : this.nodes.keySet()) {
             graphString += ""+node+"->"+this.nodes.get(node)+"\n";
         }
         return graphString;

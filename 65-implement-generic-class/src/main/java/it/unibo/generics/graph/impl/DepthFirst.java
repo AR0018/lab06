@@ -7,7 +7,7 @@ import it.unibo.generics.graph.api.Search;
 
 /*TODO: implement */
 public class DepthFirst<N> implements Search<N> {
-    public List<N> findPath(Graph<N> graph, N source, N target) {
+    public List<N> findPath(final Graph<N> graph, final N source, final N target) {
         return null;
     }
 }

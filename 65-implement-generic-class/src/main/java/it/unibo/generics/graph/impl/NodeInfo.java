@@ -24,11 +24,11 @@ public class NodeInfo<N> {
         return this.father;
     }
 
-    public void setDepth(int depth) {
+    public void setDepth(final int depth) {
         this.depth = depth;
     }
 
-    public void setFather(N father) {
+    public void setFather(final N father) {
         this.father = father;
     }
 }
