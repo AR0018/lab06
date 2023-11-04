@@ -2,6 +2,7 @@ package it.unibo.generics.graph;
 
 import it.unibo.generics.graph.api.Graph;
 import it.unibo.generics.graph.impl.BreadthFirst;
+import it.unibo.generics.graph.impl.DepthFirst;
 import it.unibo.generics.graph.impl.GraphImpl;
 
 import java.util.Arrays;
@@ -24,7 +25,7 @@ public final class UseGraph {
         /*
          * Test your graph implementation(s) by calling testGraph
          */
-        testGraph(new GraphImpl<>(new BreadthFirst<>()));
+        testGraph(new GraphImpl<>(new DepthFirst<>()));
     }
 
     private static void testGraph(final Graph<String> graph) {

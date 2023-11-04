@@ -10,10 +10,12 @@ public class NodeInfo<N> {
 
     private int depth;  //distance to source
     private N father;
+    private boolean discovered; //true if the node is discovered, false otherwise
 
     public NodeInfo() {
         this.depth = DEF_DEPTH;
         this.father = null;
+        this.discovered = false;
     }
 
     public int getDepth() {
@@ -24,11 +26,19 @@ public class NodeInfo<N> {
         return this.father;
     }
 
+    public boolean isDiscovered() {
+        return this.discovered;
+    }
+
     public void setDepth(final int depth) {
         this.depth = depth;
     }
 
     public void setFather(final N father) {
         this.father = father;
+    }
+
+    public void discover() {
+        this.discovered = true;
     }
 }

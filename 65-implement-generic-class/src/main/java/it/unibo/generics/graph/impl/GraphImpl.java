@@ -9,11 +9,19 @@ import java.util.Set;
 import it.unibo.generics.graph.api.Graph;
 import it.unibo.generics.graph.api.Search;
 
+/**
+ * Implements a generic graph.
+ * The nodes are represented as the keys of a hash map, 
+ * and the value of each node is a set containing all of the adjacent nodes.
+ */
 public class GraphImpl<N> implements Graph<N> {
 
     private final Map<N, Set<N>> nodes;
     private final Search<N> searchStrategy;
 
+    /*
+     * The constructor requires to insert the desired strategy for the graph exploration
+     */
     public GraphImpl(final Search<N> searchStrategy) {
         this.nodes = new HashMap<>();
         this.searchStrategy = searchStrategy;

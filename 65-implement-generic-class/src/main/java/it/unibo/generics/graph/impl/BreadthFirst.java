@@ -35,10 +35,7 @@ public class BreadthFirst<N> implements Search<N> {
             /*
              * Creates the map with the informations about the nodes.
              */
-            this.nodesData = newMap();
-            for (final N node : graph.nodeSet()) {
-                this.nodesData.put(node, new NodeInfo<>());
-            }
+            this.nodesData = newMap(graph);
             /*
              * Explores the graph 
             */
@@ -110,11 +107,15 @@ public class BreadthFirst<N> implements Search<N> {
     private List<N> newQueue() {
         return new LinkedList<>();
     }
-
-    /*
-     * Creates am empty map
+    
+    /**
+     * Creates a map with the informations about the nodes of the graph
      */
-    private Map<N, NodeInfo<N>> newMap() {
-        return new HashMap<N, NodeInfo<N>>();
+    private Map<N, NodeInfo<N>> newMap(final Graph<N> graph) {
+        final Map<N, NodeInfo<N>> infoMap = new HashMap<>();
+        for (final N node : graph.nodeSet()) {
+                infoMap.put(node, new NodeInfo<>());
+        }
+        return infoMap;
     }
 }
